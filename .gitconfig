@@ -1,0 +1,17 @@
+[user]
+	name = hash
+	email = hash@users.noreply.github.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	ap = add -p
+	ai = add -i
+	df = diff
+	rh = reset --hard
+	fp = fetch --prune
+	fa = fetch --all
+	ignore = update-index --assume-unchanged 
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
