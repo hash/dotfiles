@@ -5,6 +5,7 @@
 	co = checkout
 	br = branch
 	ci = commit
+	ca = commit --amend --no-edit
 	st = status
 	ap = add -p
 	ai = add -i
