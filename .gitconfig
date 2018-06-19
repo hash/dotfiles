@@ -13,7 +13,19 @@
 	rh = reset --hard
 	fp = fetch --prune
 	fa = fetch --all
+	us = reset HEAD --
+	lg = log -p
+	ss = show --stat
+	pb = log --oneline --graph --all
+	ig = ls-files --others --ignored --exclude-standard
 	gca = gc --aggressive --prune=all
+	last = log --no-merges -1 HEAD
 	ignore = update-index --assume-unchanged 
 	unignore = update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
+	force-lf = !git config core.eol lf && git config core.autocrlf input && git rm -rf --cached . && git reset --hard HEAD
+[alias] # tests
+	latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+	intend = add . --intent-to-add
+	wsfix = "!git diff HEAD >P.diff && git reset --hard HEAD && git apply --index --whitespace=fix P.diff && rm -f P.diff"
+	wsadd = "!sh -c 'git diff -- \"$@\" | git apply --cached --whitespace=fix; git checkout -- ${1-.} \"$@\"' -"
