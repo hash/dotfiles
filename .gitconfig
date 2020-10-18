@@ -15,11 +15,13 @@
 	fa = fetch --all
 	us = reset HEAD --
 	lg = log -p
+	lo = log --oneline
 	ss = show --stat
 	pb = log --oneline --graph --all
 	ig = ls-files --others --ignored --exclude-standard
 	rmtm = !git branch --merged master | grep -v master | xargs -n 1 git branch -d
 	rmtd = !git branch --merged develop | grep -v develop | xargs -n 1 git branch -d
+	rmts = !git branch --merged staging | grep -v staging | xargs -n 1 git branch -d
 	gbo = !git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | sed -n 's/^blob //p' | sort --numeric-sort --key=2 | cut -c 1-12,41- | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
 	gca = gc --aggressive --prune=all
 	last = log --no-merges -1 HEAD
